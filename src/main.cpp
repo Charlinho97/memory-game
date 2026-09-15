@@ -1,59 +1,86 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <random>
 
 using namespace std;
-
-struct memory
-{
-    bool display, match = false;
-    string imageName;
-};
 
 class Item {
     private:
         ;    
     public:
+    bool display, match = false;
+    string imagePath;
 
-        bool display, match;
-        string imagePath;
+    void correspond() {
+        match = true;
+    }
 
-        void correspond() {
-            match = true;
-        }
+    void hide() {
+        display = false;
+    }
 
-        void hide() {
-            display = false;
-        };
+    void reveal() {
+        display = true;
+    }
+};
+class GameView {
+    private:
+    ;
+    public:
 
-        void show() {
-            display = true;
-        };
-}
+    bool selectObj() {
 
-void model(int variable)
-{
-    vector<vector<memory>> grid(
-    variable,
-    vector<memory>(variable)
-    );
-    
-    cout<<grid[variable-1][variable-2].match;
+        return false;
+    }
 
-    return;
-}
+    bool gameStart() {
+
+        return false;
+    }
+
+    bool gameRestart() {
+
+        return false;
+    }
+
+    void run() {
+
+    }
+};
+class GameModel {
+    private:
+    vector<vector<Item>> grid;
+    ;
+    public:
+
+    int variable;
+
+    GameModel (int size):
+    grid(size, vector<Item>(size))
+    {
+        
+    }
+};
+class GameController {
+    private:;
+    public:;
+
+    GameController (GameModel& model, GameView& view) {
+        
+        //if (){view.gameStart();}
+
+        //if (){view.gameRestart();}
+
+    };
+};
 
 int main()
-{
-    int gridInput = 0;
+{    
+    GameView view;
+    GameModel model(3); //The input variable should come from the GUI
+    GameController controller(model, view);
 
-    cout<<"Grid:\n";
-    cin>>gridInput;
-    
-    model(gridInput);
-
-    Item isso;
-    isso.show();
-
+    view.run();
     return 0;  
 }
